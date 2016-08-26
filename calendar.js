@@ -15,7 +15,7 @@ function sortMeetingsByStartTime(meetings) {
 }
 
 function meetingsShouldBeCondensed(meeting1, meeting2) {
-  return meeting1.endTime > meeting2.startTime ?
+  return meeting1.endTime >= meeting2.startTime ?
     {startTime: meeting1.startTime, endTime: meeting2.endTime } : false;
 }
 
