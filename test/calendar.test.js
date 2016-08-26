@@ -19,21 +19,40 @@ describe('Calendar', function () {
         {startTime: 3, endTime: 8}
       ]
       assert.deepEqual(funcs.checkIfShouldBeCondensed(input), expected)
-    })
-    xit('#condenseMeetingTimes', function () {
-      var input =   [
+    });
+  })
+  describe('Sort Meetings', function () {
+    it('#sortMeetingsByStartTime', function () {
+      var input = [
         {startTime: 0,  endTime: 1},
         {startTime: 3,  endTime: 5},
         {startTime: 4,  endTime: 8},
         {startTime: 10, endTime: 12},
         {startTime: 9,  endTime: 10},
       ]
-      var expected =   [
+      var expected = [
         {startTime: 0, endTime: 1},
-        {startTime: 3, endTime: 8},
-        {startTime: 9, endTime: 12},
-      ]
-      assert.equal(funcs.condenseMeetingTimes(input), expected);
+        {startTime: 3, endTime: 5},
+        {startTime: 4, endTime: 8},
+        {startTime: 9, endTime: 10},
+        {startTime: 10, endTime: 12}
+       ]
+       assert.deepEqual(funcs.sortMeetingsByStartTime(input), expected);
     })
+  })
+  xit('#condenseMeetingTimes', function () {
+    var input =   [
+      {startTime: 0,  endTime: 1},
+      {startTime: 3,  endTime: 5},
+      {startTime: 4,  endTime: 8},
+      {startTime: 10, endTime: 12},
+      {startTime: 9,  endTime: 10},
+    ]
+    var expected =   [
+      {startTime: 0, endTime: 1},
+      {startTime: 3, endTime: 8},
+      {startTime: 9, endTime: 12},
+    ]
+    assert.equal(funcs.condenseMeetingTimes(input), expected);
   })
 })
