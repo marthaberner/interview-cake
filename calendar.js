@@ -1,3 +1,4 @@
+
 function sortMeetingsByStartTime(meetings) {
   meetings = meetings.sort(function (a, b) {
     if (a.startTime > b.startTime) {
@@ -13,12 +14,12 @@ function sortMeetingsByStartTime(meetings) {
     return meetings
 }
 
-function checkIfShouldBeCondensed(meeting1, meeting2) {
+function meetingsShouldBeCondensed(meeting1, meeting2) {
   return meeting1.endTime > meeting2.startTime ?
     {startTime: meeting1.startTime, endTime: meeting2.endTime } : false;
 }
 
 module.exports = {
-  checkIfShouldBeCondensed: checkIfShouldBeCondensed,
+  meetingsShouldBeCondensed: meetingsShouldBeCondensed,
   sortMeetingsByStartTime: sortMeetingsByStartTime
 }

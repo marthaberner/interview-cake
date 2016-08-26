@@ -2,18 +2,18 @@ var assert = require('assert');
 var funcs = require('../calendar');
 
 describe('Calendar', function () {
-  describe('#checkIfShouldBeCondensed', function () {
+  describe('#meetingsShouldBeCondensed', function () {
     it('should not be condensed', function () {
       var input1 = {startTime: 0, endTime: 1}
       var input2 = {startTime: 3, endTime: 5}
 
-      assert.deepEqual(funcs.checkIfShouldBeCondensed(input1, input2), false);
+      assert.deepEqual(funcs.meetingsShouldBeCondensed(input1, input2), false);
     })
     it('should be condensed', function () {
       var input1 = {startTime: 3, endTime: 5}
       var input2 = {startTime: 4, endTime: 8}
       var expected = {startTime: 3, endTime: 8}
-      assert.deepEqual(funcs.checkIfShouldBeCondensed(input1, input2), expected)
+      assert.deepEqual(funcs.meetingsShouldBeCondensed(input1, input2), expected)
     });
   })
   describe('Sort Meetings', function () {
