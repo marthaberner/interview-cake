@@ -1,6 +1,17 @@
+function condenseMeetingTimes(meetings) {
+  meetings = sortMeetingsByStartTime(meetings);
+  var results = [];
+  for(var i=0; i<meetings.length; i++) {
+    if(i < meetings.length-1){
+     var status = meetingsShouldBeCondensed(meetings[i], meetings[i+1]);
+     status ? results.push(status) && i++ : results.push(meetings[i]);
+    }
+  }
+  return results;
+}
 
 function sortMeetingsByStartTime(meetings) {
-  meetings = meetings.sort(function (a, b) {
+  return meetings.sort(function (a, b) {
     if (a.startTime > b.startTime) {
       return 1;
     } else {
@@ -11,7 +22,6 @@ function sortMeetingsByStartTime(meetings) {
     }
     return 0;
     });
-    return meetings
 }
 
 function meetingsShouldBeCondensed(meeting1, meeting2) {
@@ -21,5 +31,6 @@ function meetingsShouldBeCondensed(meeting1, meeting2) {
 
 module.exports = {
   meetingsShouldBeCondensed: meetingsShouldBeCondensed,
-  sortMeetingsByStartTime: sortMeetingsByStartTime
+  sortMeetingsByStartTime: sortMeetingsByStartTime,
+  condenseMeetingTimes: condenseMeetingTimes
 }

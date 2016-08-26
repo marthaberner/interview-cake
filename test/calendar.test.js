@@ -34,19 +34,22 @@ describe('Calendar', function () {
        assert.deepEqual(funcs.sortMeetingsByStartTime(input), expected);
     })
   })
-  xit('#condenseMeetingTimes', function () {
-    var input =   [
-      {startTime: 0,  endTime: 1},
-      {startTime: 3,  endTime: 5},
-      {startTime: 4,  endTime: 8},
-      {startTime: 10, endTime: 12},
-      {startTime: 9,  endTime: 10},
-    ]
-    var expected =   [
-      {startTime: 0, endTime: 1},
-      {startTime: 3, endTime: 8},
-      {startTime: 9, endTime: 12},
-    ]
-    assert.equal(funcs.condenseMeetingTimes(input), expected);
+  describe('Condense All Meetings', function () {
+    it('#condenseMeetingTimes', function () {
+      var input =   [
+        {startTime: 0,  endTime: 1},
+        {startTime: 3,  endTime: 5},
+        {startTime: 4,  endTime: 8},
+        {startTime: 10, endTime: 12},
+        {startTime: 9,  endTime: 10},
+      ]
+      var expected =   [
+        {startTime: 0, endTime: 1},
+        {startTime: 3, endTime: 8},
+        {startTime: 9, endTime: 12},
+      ]
+      assert.deepEqual(funcs.condenseMeetingTimes(input), expected);
+    })
+
   })
 })
